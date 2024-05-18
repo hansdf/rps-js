@@ -1,12 +1,4 @@
-/* 
-set random choice for computer
-use math random *1 up to 3, each number == one option
-get user input, use prompt()
-check if user input x and computer y, user wins...
-console log result
-*/
-
-console.log("Hello World")
+alert("This is a Rock Paper Sicssors game \nIt will be played in 5 rounds!")
 
 function getCpuChoice(max) {
     randomNumber = Math.floor(Math.random() * max)
@@ -20,25 +12,53 @@ console.log(cpuChoice)
 // 1 = rock
 // 2 = scissors
 
-let userGuess = prompt("Please enter your guess(rock / paper / scissors)", "")
+let userGuess
+let userScore = 0
+let cpuScore = 0
+let rounds = 0
 console.log(userGuess)
 
-if (userGuess == "rock" & cpuChoice == 2) {
-    alert("User wins!")
-} else if (userGuess == "rock" & cpuChoice == 0) {
-    alert("CPU Wins!")
-} else if (userGuess == "rock" & cpuChoice == 1) {
-    alert("CPU Wins!")
-} else if (userGuess == "paper" & cpuChoice == 1) {
-    alert("User wins!")
-} else if (userGuess == "paper" & cpuChoice == 0) {
-    alert("CPU Wins!")
-} else if (userGuess == "paper" & cpuChoice == 2) {
-    alert("CPU Wins!")
-} else if (userGuess == "scissors" & cpuChoice == 0) {
-    alert("User wins!")
-} else if (userGuess == "scissors" & cpuChoice == 1) {
-    alert("CPU Wins!")
-} else {
-    alert("CPU Wins!")
+while (rounds < 5) {
+    userGuess = prompt("Please enter your guess for this rounds : rock / paper / scissors", "")
+
+    if (userGuess == "rock" & cpuChoice == 2) {
+        rounds = rounds+1
+        userScore = userScore+1
+        alert("User wins!")
+    } else if (userGuess == "rock" & cpuChoice == 0) {
+        rounds = rounds+1
+        cpuScore = cpuScore+1
+        alert("CPU Wins!")
+    } else if (userGuess == "rock" & cpuChoice == 1) {
+        rounds = rounds+1
+        cpuScore = cpuScore+1
+        alert("CPU Wins!")
+    } else if (userGuess == "paper" & cpuChoice == 1) {
+        rounds = rounds+1
+        userScore = userScore+1
+        alert("User wins!")
+    } else if (userGuess == "paper" & cpuChoice == 0) {
+        rounds = rounds+1
+        cpuScore = cpuScore+1
+        alert("CPU Wins!")
+    } else if (userGuess == "paper" & cpuChoice == 2) {
+        rounds = rounds+1
+        cpuScore = cpuScore+1
+        alert("CPU Wins!")
+    } else if (userGuess == "scissors" & cpuChoice == 0) {
+        rounds = rounds+1
+        userScore = userScore+1
+        alert("User wins!")
+    } else if (userGuess == "scissors" & cpuChoice == 1) {
+        rounds = rounds+1
+        cpuScore = cpuScore+1
+        alert("CPU Wins!")
+    } else {
+        rounds = rounds+1
+        cpuScore = cpuScore+1
+        alert("CPU Wins!")
+    }
 }
+
+console.log("user won " + userScore + " rounds")
+console.log("cpu won " + cpuScore + " rounds")
