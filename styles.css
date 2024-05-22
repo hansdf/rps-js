@@ -1,12 +1,37 @@
 body {
-    background-color: lightcyan;
+    background-color: #496989;
     font-family: sans-serif;
 }
 
-button.buttonStyle {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    margin: 15px;
-    /* width: 140px; */
+.container {
+    border:5px solid #CADEFC;
+    padding: 50px;
+    background-color: #58A399;
+    margin: 0px;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+.bttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.buttonStyle {
+    padding: 10px 20px; 
+    font-size: 25px; 
+    border: 3px solid #CADEFC;
+    background-color: #496989; 
+    cursor: pointer;    
+    border-radius: 3px;
+    color: #E2F4C5;
+    font-weight: bold;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #E2F4C5;
 }
