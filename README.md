@@ -1,6 +1,7 @@
 #Rock paper scissors exercise
 
 small exercise part of The Odin Project ╰（‵□′）╯
+
 used https://coolors.co/ for some basic colors palette
 
 ![alt text](image.png)
