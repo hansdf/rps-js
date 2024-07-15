@@ -1,8 +1,10 @@
 let userGuess;
+let userScore = 0;
+let cpuScore = 0;
 let rounds = 0;
 let resultWord;
 let cpuChoiceWord;
-let result = false; // true for player win and false for CPU win
+let result = ""; // "win", "lose", or "draw"
 
 function getCpuChoice(max) {
     // get random number from 0 to max
@@ -13,75 +15,75 @@ function getCpuChoice(max) {
 function playRound(userGuess, cpuChoice) {
     console.log("User chose " + userGuess + " and CPU chose " + cpuChoice);
 
-    if (userGuess == "rock" && cpuChoice == 2) {
-        result = true;
+    if (userGuess === "rock" && cpuChoice === 2) {
+        result = "win";
         cpuChoiceWord = "scissors";
-    } else if (userGuess == "rock" && cpuChoice == 0) {
-        result = false;
+    } else if (userGuess === "rock" && cpuChoice === 0) {
+        result = "lose";
         cpuChoiceWord = "paper";
-    } else if (userGuess == "rock" && cpuChoice == 1) {
-        result = false;
+    } else if (userGuess === "rock" && cpuChoice === 1) {
+        result = "draw";
         cpuChoiceWord = "rock";
-    } else if (userGuess == "paper" && cpuChoice == 1) {
-        result = true;
+    } else if (userGuess === "paper" && cpuChoice === 1) {
+        result = "win";
         cpuChoiceWord = "rock";
-    } else if (userGuess == "paper" && cpuChoice == 0) {
-        result = false;
+    } else if (userGuess === "paper" && cpuChoice === 0) {
+        result = "draw";
         cpuChoiceWord = "paper";
-    } else if (userGuess == "paper" && cpuChoice == 2) {
-        result = false;
+    } else if (userGuess === "paper" && cpuChoice === 2) {
+        result = "lose";
         cpuChoiceWord = "scissors";
-    } else if (userGuess == "scissors" && cpuChoice == 0){
-        result = true;
-        cpuChoiceWord = "paper";
-    } else if (userGuess == "scissors" && cpuChoice == 1){
-        result = false;
+    } else if (userGuess === "scissors" && cpuChoice === 0) {
+        result = "lose";
         cpuChoiceWord = "rock";
-    } else if (userGuess == "scissors" && cpuChoice == 2){
-        result = false;
+    } else if (userGuess === "scissors" && cpuChoice === 1) {
+        result = "win";
+        cpuChoiceWord = "paper";
+    } else if (userGuess === "scissors" && cpuChoice === 2) {
+        result = "draw";
         cpuChoiceWord = "scissors";
     }
 
-    if (result == true) {
-        resultWord = "won!"
-    } else if (result == false) {
-        resultWord = "lost :("
+    if (result === "win") {
+        resultWord = "won!";
+    } else if (result === "lose") {
+        resultWord = "lost :(";
+    } else if (result === "draw") {
+        resultWord = "drew.";
     }
-
 }
-const container = document.querySelector(".container");
-const rockButton = document.querySelector("#rockBtn");
 
+const container = document.querySelector(".container");
+
+const rockButton = document.querySelector("#rockBtn");
 rockButton.addEventListener("click", function() {
     let cpuChoice = getCpuChoice(3);
     userGuess = "rock";
     playRound(userGuess, cpuChoice);
 
     let resultElement = document.createElement("h1");
-    resultElement.textContent = "Computer chose " + cpuChoiceWord + ", you " + resultWord;
+    resultElement.textContent = "You chose rock and the computer chose " + cpuChoiceWord + ", you " + resultWord;
     container.appendChild(resultElement);
 });
 
 const paperButton = document.querySelector("#paperBtn");
-
 paperButton.addEventListener("click", function() {
     let cpuChoice = getCpuChoice(3);
     userGuess = "paper";
     playRound(userGuess, cpuChoice);
 
     let resultElement = document.createElement("h1");
-    resultElement.textContent = "Computer chose " + cpuChoiceWord + ", you " + resultWord;
+    resultElement.textContent = "You chose paper and the computer chose " + cpuChoiceWord + ", you " + resultWord;
     container.appendChild(resultElement);
 });
 
 const scissorsButton = document.querySelector("#scissorsBtn");
-
 scissorsButton.addEventListener("click", function() {
     let cpuChoice = getCpuChoice(3);
     userGuess = "scissors";
     playRound(userGuess, cpuChoice);
 
     let resultElement = document.createElement("h1");
-    resultElement.textContent = "Computer chose " + cpuChoiceWord + ", you " + resultWord;
+    resultElement.textContent = "You chose scissors and the computer chose " + cpuChoiceWord + ", you " + resultWord;
     container.appendChild(resultElement);
 });
